@@ -40,7 +40,7 @@ const Header = () => {
     changeContainerSize(360, 250);
   };
 
-  useEffect(() => {
+  useLayoutEffect(() => {
     var textWrapper = document.querySelector(".title");
     textWrapper.innerHTML = textWrapper.textContent.replace(
       /\S/g,
@@ -59,10 +59,12 @@ const Header = () => {
 
     gsap.fromTo(
       photos,
-      { yPercent: 500 },
+      { yPercent: 100, scale: 0.1 },
       {
-        duration: 1,
+        duration: 0.5,
         yPercent: 0,
+        delay: 0.4,
+        scale: 1.1,
         ease: Power2.easeOut,
 
         stagger: {
@@ -78,7 +80,7 @@ const Header = () => {
         duration: 1,
         top: 0,
         ease: Power2.easeOut,
-        delay: 5,
+        delay: 4.5,
       }
     );
 
@@ -86,28 +88,30 @@ const Header = () => {
       yPercent: 500,
       duration: 0.1,
       ease: Power2.easeOut,
-      delay: 5,
+      delay: 4.5,
       stagger: {
-        amount: 1.3,
+        amount: 1,
       },
     });
 
     gsap.to(".img-container", {
       duration: 1,
       y: "150%",
+      delay: 4,
       scale: 1.8,
-      delay: 5,
       ease: Expo.easeInOut,
     });
   }, []);
 
   useEffect(() => {
-    const timedelay = 1000;
+    const timedelay = 1100;
     setTimeout(() => changeContainerToVertical(), timedelay);
-    setTimeout(() => changeContainerToHorizontal(), timedelay * 2);
-    setTimeout(() => changeContainerToVertical(), timedelay * 3);
+    setTimeout(() => changeContainerToHorizontal(), timedelay * 1.8);
+    setTimeout(() => changeContainerToVertical(), timedelay * 2.5);
     setTimeout(() => changeContainerToHorizontal(), timedelay * 4);
   }, []);
+
+  console.log("render");
 
   return (
     <header className="w-full relative h-screen bg-beige">
@@ -127,34 +131,33 @@ const Header = () => {
             width: `${containerWidth}px`,
             height: `${containerHeight}px`,
           }}
-          className="duration-500 transition-all"
+          className="duration-300 transition-all"
         >
-          <div className="img-container relative w-full h-full z-20 overflow-hidden">
+          <div className="img-container will-change-transform relative w-full h-full z-20 overflow-hidden">
             <div
               ref={photoRef1}
-              className="w-full absolute h-full bg-cover"
+              className="w-full will-change-transform absolute bg-center h-full bg-cover"
               style={{ backgroundImage: `url(${photo})` }}
             ></div>
             <div
               ref={photoRef2}
-              className="w-full absolute h-full bg-cover"
+              className="w-full will-change-transform absolute bg-center h-full bg-cover"
               style={{ backgroundImage: `url(${photo6})` }}
             ></div>
             <div
               ref={photoRef3}
-              className="w-full absolute h-full bg-cover"
+              className="w-full will-change-transform absolute  h-full bg-center bg-cover"
               style={{ backgroundImage: `url(${photo3})` }}
             ></div>
 
             <div
               ref={photoRef5}
-              className="w-full absolute h-full bg-cover"
+              className="w-full will-change-transform absolute h-full bg-center bg-cover"
               style={{ backgroundImage: `url(${photo7})` }}
             ></div>
-
             <div
               ref={photoRef7}
-              className="w-full absolute h-full bg-center bg-cover"
+              className="w-full will-change-transform absolute h-full bg-center bg-cover"
               style={{ backgroundImage: `url(${photo8})` }}
             ></div>
           </div>
