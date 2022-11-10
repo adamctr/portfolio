@@ -25,8 +25,8 @@ const Header = () => {
   const photoRef7 = useRef();
 
   const title = useRef();
-  const [containerWidth, setContainerWidth] = useState(360);
-  const [containerHeight, setContainerHeight] = useState(250);
+  const [containerWidth, setContainerWidth] = useState(36);
+  const [containerHeight, setContainerHeight] = useState(25);
 
   const changeContainerSize = (width, height) => {
     setContainerWidth(width);
@@ -34,10 +34,10 @@ const Header = () => {
   };
 
   const changeContainerToVertical = () => {
-    changeContainerSize(250, 360);
+    changeContainerSize(25, 36);
   };
   const changeContainerToHorizontal = () => {
-    changeContainerSize(360, 250);
+    changeContainerSize(36, 25);
   };
 
   useLayoutEffect(() => {
@@ -85,20 +85,20 @@ const Header = () => {
     );
 
     gsap.to(".title .letter", {
-      yPercent: 550,
+      yPercent: 220,
       duration: 0.1,
       ease: Power2.easeOut,
       delay: 4.4,
       stagger: {
-        amount: 1,
+        amount: 0.6,
       },
     });
 
     gsap.to(".img-container", {
       duration: 1,
-      y: "150%",
+      y: "130%",
       delay: 4,
-      scale: 1.8,
+      scale: 1.4,
       ease: Expo.easeInOut,
     });
   }, []);
@@ -114,14 +114,15 @@ const Header = () => {
   console.log("render");
 
   return (
-    <header className="w-full relative h-screen bg-beige">
+    <header className="w-full relative h-screen bg-beige text-base">
       <Nav></Nav>
       <div className="h-full w-full flex justify-center items-center absolute top-[50%] left-[50%] translate-x-[-50%] translate-y-[-65%]">
-        <div className="absolute  translate-y-[-5vh] z-10 w-[50rem]  h-20 bg-beige"></div>
+        <div className="absolute  translate-y-[-5vh] z-10 w-[50rem] max-lg:w-[40rem] max-md:w-[23rem] max-sm:w-[22rem] max-  h-20 bg-beige"></div>
         <h1
           ref={title}
           className="
-           title absolute translate-y-[-5vh] font-harmond text-[3.25rem]  leading-3 flex line
+           title absolute translate-y-[-5vh] font-harmond text-4xl  leading-3 flex line
+          max-lg:text-xl
            "
         >
           FRONT-END&nbsp;DEVELOPPER
@@ -129,8 +130,8 @@ const Header = () => {
 
         <div
           style={{
-            width: `${containerWidth}px`,
-            height: `${containerHeight}px`,
+            width: `${containerWidth}vw`,
+            height: `${containerHeight}vw`,
           }}
           className="duration-300 transition-all"
         >
