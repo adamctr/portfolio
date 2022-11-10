@@ -5,3 +5,13 @@
 * {
   box-sizing: border-box;
 }
+
+@font-face {
+  font-family: "harmond";
+  src: url("../public/fonts/Harmond/Harmond-ExtraBoldExpanded.otf");
+}
+
+@font-face {
+  font-family: "superduper";
+  src: url("../public/fonts/AH_SuperDuper/AH_SuperDuper-Regular.otf");
+}

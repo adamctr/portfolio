@@ -75,20 +75,20 @@ const Header = () => {
 
     gsap.fromTo(
       "nav",
-      { top: -100 },
+      { yPercent: -100 },
       {
         duration: 1,
-        top: 0,
+        yPercent: 0,
         ease: Power2.easeOut,
-        delay: 4.5,
+        delay: 4.4,
       }
     );
 
     gsap.to(".title .letter", {
-      yPercent: 500,
+      yPercent: 550,
       duration: 0.1,
       ease: Power2.easeOut,
-      delay: 4.5,
+      delay: 4.4,
       stagger: {
         amount: 1,
       },
@@ -117,11 +117,12 @@ const Header = () => {
     <header className="w-full relative h-screen bg-beige">
       <Nav></Nav>
       <div className="h-full w-full flex justify-center items-center absolute top-[50%] left-[50%] translate-x-[-50%] translate-y-[-65%]">
-        <div className="absolute  translate-y-[-5vh] z-10 w-[48rem]  h-20 bg-beige"></div>
+        <div className="absolute  translate-y-[-5vh] z-10 w-[50rem]  h-20 bg-beige"></div>
         <h1
           ref={title}
           className="
-           title absolute translate-y-[-5vh] text-[4rem] leading-3 flex line"
+           title absolute translate-y-[-5vh] font-harmond text-[3.25rem]  leading-3 flex line
+           "
         >
           FRONT-END&nbsp;DEVELOPPER
         </h1>
